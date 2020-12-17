@@ -37,7 +37,7 @@ The cleaned data has been loaded to the Cassandra tables movies_etl, ratings, an
 * CSS3
 * Javascript ECMAScript6  
 * Tableau 2019.4 
-* Cassandra 3.4.4 
+* AWS EMR
 
 
 **Cluster instructions**
