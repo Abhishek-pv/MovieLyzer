@@ -1,0 +1,15 @@
+CREATE TABLE movies_etl (
+budget double,
+genres text,
+id int PRIMARY KEY,
+original_language text,
+popularity double ,
+production_companies text,
+production_countries text,
+release_date text,
+revenue double,
+runtime int,
+title text,
+vote_average double,
+vote_count double,
+);

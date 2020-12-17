@@ -1,0 +1,7 @@
+CREATE TABLE avg_ratings 
+(
+movieid int (PRIMARY KEY), 
+title text, 
+year_of_release int,
+average_ratings double
+)

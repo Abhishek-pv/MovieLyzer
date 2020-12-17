@@ -1,0 +1,43 @@
+Running the programs:
+
+There are maultiple codes written for different analysis. The available programs are:
+
+1. load_movies_complete.py: This code is used for cleaning the movies_metadata dataset and loading it into the Cassandra table movies_etl.
+
+2. load_credits.py: This codes cleans & loads the data to Cassandra table credits.
+The cleaned data is already loaded to Cassandra in the keyspace code500.
+
+3. average_ratings.py: This program is used to fetch the average user ratings for each movie by joining movies_etl & ratings tables.
+The result of this is stored into the cassandra table-avg_ratings in the keyspace code500.
+
+4. popular_genres.py: This program is used to analyse the how the genre trends have evolved over time & also shows the most trending genres decade wise.
+Command to run:
+spark-submit --packages datastax:spark-cassandra-connector:2.4.0-s_2.11 popular_genres code500 movies_etl output_genre
+
+5. popular_director.py: This program analyses the top 5 directors for each decade.
+Command to run:
+spark-submit --packages datastax:spark-cassandra-connector:2.4.0-s_2.11 popular_director.py movies_etl credits ratings code500
+
+6. popular_movie.py: This program analyses the top-rated movies based on the critic ratings per each decade.
+Command to run:
+spark-submit --packages datastax:spark-cassandra-connector:2.4.0-s_2.11 popular_movie.py code500 output_movie
+
+7. profit_month.py: This program helps to understand the most profitable months of the year for movie releases.
+Command to run:
+spark-submit --packages datastax:spark-cassandra-connector:2.4.0-s_2.11 profit_month.py code500 movies_etl 
+
+8. production_companies.py: This program helps us to analyze the most profitable production company of each decade.
+Command to run:
+spark-submit --packages datastax:spark-cassandra-connector:2.4.0-s_2.11 production_companies.py movies_etl code500 output_production
+
+9. votings_trend.py: This program analyses how the voting trend has changed over decades.
+Command to run:
+spark-submit --packages datastax:spark-cassandra-connector:2.4.0-s_2.11 votings_trend.py code500 movies_etl. 
+
+10. movies_trend: This program analyses how movies have become the prime source of entertainment in the recent times. 
+Command to run:
+spark-submit --packages datastax:spark-cassandra-connector:2.4.0-s_2.11 movies_trend.py code500 movies_etl. 
+
+11. longest_running_movies.py: This program helps us to analyze the movies that ran for the maximum number of days till date per each language present in the dataset.
+Command to run:
+spark-submit --packages datastax:spark-cassandra-connector:2.4.0-s_2.11 longest_running_movies.py code500 movies_etl
